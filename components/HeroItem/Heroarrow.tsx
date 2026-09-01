@@ -1,11 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
 
-const Heroitem = () => {
+const Heroarrow = () => {
   return (
     <div>
          <Image
-                  className="absolute -top-3 z-30"
                   src="/images/arrow.png"
                   alt="idCard"
                   width={260}
@@ -15,4 +14,4 @@ const Heroitem = () => {
   )
 }
 
-export default Heroitem
+export default Heroarrow
