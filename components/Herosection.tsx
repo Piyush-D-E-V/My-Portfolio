@@ -8,26 +8,26 @@ import Navbar from "./Navbar/Navbar";
 const Herosection = () => {
   return (
     <div className="relative overflow-hidden h-screen w-full">
-      <div className="sticky z-50">
+      <div className="sticky z-100">
         <Navbar />
       </div>
       <div className="w-full h-screen flex justify-center items-center">
-        {/* <div className="absolute top-2 w-full z-40">
+        {/* <div className="absolute top-2 w-full z-60">
           <Idcard />
         </div> */}
-        <div className="absolute top-40 right-50">
+        <div className="absolute top-40 right-40">
           <Heroarrow/>
         </div>
-        <div className="absolute bottom-0 left-60">
+        <div className="absolute bottom-0 left-40 z-50">
           <HerotagIcon/>
         </div>
-        <div className="flex flex-col justify-center">
+        <div className="flex flex-col justify-center z-50">
           <p className="leading-35"><span className="text-6xl pl-5">Welcome Lets </span><br />
           <span className="text-[320px] font-bold">Building</span> <br />
           <span className="flex justify-end text-6xl pr-5">the Unimaginable</span></p>
         </div>
 
-        <div className="absolute left-0 w-full">
+        <div className="absolute left-0 w-full z-30">
           <Background />
           <div>
             <Midline/>

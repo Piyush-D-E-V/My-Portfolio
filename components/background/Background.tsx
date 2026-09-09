@@ -11,10 +11,10 @@ const Background = () => {
       </div>
 
       {/* Bottom Left - The brightest pink hot spot */}
-      <div className="absolute bottom-85">
-        <div className="w-screen h-500 bg-[#EAAEF2]/85 rounded-full absolute z-20 blur-2xl"></div>
-        <div className="w-screen h-500 bg-[#8552F2] rounded-full absolute z-10 blur-3xl"></div>
-        <div className="w-screen h-500 bg-[#5E35F2] rounded-full absolute blur-xl"></div>
+      <div className="absolute md:bottom-70">
+        <div className="w-screen h-500 bg-[#EAAEF2]/85 rounded-t-[35%] absolute z-50 blur-2xl"></div>
+        <div className="w-screen h-500 bg-[#8552F2] rounded-t-[30%] absolute z-10 blur-3xl"></div>
+        <div className="w-screen h-500 bg-[#5E35F2] rounded-t-[25%] absolute blur-xl"></div>
       </div>
     </div>
   );

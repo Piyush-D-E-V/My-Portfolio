@@ -5,10 +5,10 @@ const HerotagIcon = () => {
    return (
       <div>
            <Image
-                    src="/images/tag.png"
+                    src="/images/tag2.png"
                     alt="idCard"
-                    width={300}
-                    height={300}
+                    width={400}
+                    height={400}
                   />
       </div>
     )

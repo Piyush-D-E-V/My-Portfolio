@@ -1,29 +1,36 @@
-"use client"; 
+"use client";
 
-import ScrollReveal from './ScrollReveal';
+import Image from "next/image";
+import BorderGlow from "./BorderGlow";
 
 const FeaturedProjects = () => {
   return (
-    <section className="flex flex-col gap-8 pb-12 pt-32 px-6 max-w-4xl mx-auto">
-      
-      {/* 
-        1. Changed text-6xl to scale fluidly: text-3xl (mobile) -> md:text-5xl (tablet) -> lg:text-6xl (desktop) 
-        2. Changed leading-relaxed to leading-tight so the giant text groups neatly together 
-      */}
-      <div className="text-3xl md:text-5xl lg:text-6xl text-gray-200 leading-tight md:leading-snug font-bold tracking-tight">
-        
-        <ScrollReveal
-          baseOpacity={0}
-          enableBlur={true}
-          baseRotation={3}
-          blurStrength={4}
-        >
-          When does a man die? When he is hit by a bullet? No! When he suffers a disease?
-          No! When he ate a soup made out of a poisonous mushroom?
-          No! A man dies when he is forgotten!
-        </ScrollReveal>
-        
-      </div>
+    <section className="flex justify-center">
+      <BorderGlow
+        edgeSensitivity={30}
+        glowColor="40 80 80"
+        backgroundColor="#120F17"
+        borderRadius={28}
+        glowRadius={40}
+        glowIntensity={1}
+        coneSpread={25}
+        animated={false}
+        colors={["#c084fc", "#f472b6", "#38bdf8"]}
+      >
+        <div className="p-1.5 rounded-3xl">
+          <Image
+            src="/images/Bhai-ki-shop.png"
+            alt="Bhai Ki Shop"
+            width={400}
+            height={100}
+            sizes="100px"
+            className="rounded-2xl"
+          />
+        </div>
+        <div className="absolute bg-linear-0 from-red-500 to-transparent w-full h-full rounded-4xl p-2 flex items-end">
+          <h1>Bhai-Ki-Shop</h1>
+        </div>
+      </BorderGlow>
     </section>
   );
 };
