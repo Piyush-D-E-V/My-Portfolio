@@ -50,6 +50,9 @@ importers:
       shadcn:
         specifier: ^4.19.0
         version: 4.19.0(supports-color@7.2.0)(typescript@5.9.3)
+      stack-on-scroll:
+        specifier: ^2.0.2
+        version: 2.0.2(react@19.2.8)
       tailwind-merge:
         specifier: ^3.6.0
         version: 3.6.0
@@ -2860,6 +2863,12 @@ packages:
 
   stable-hash@0.0.5:
     resolution: {integrity: sha512-+L3ccpzibovGXFK+Ap/f8LOS0ahMrHTf3xu7mMLSpEGU0EO9ucaysSylKo9eRDFNhWve/y275iPmIZ4z39a9iA==}
+
+  stack-on-scroll@2.0.2:
+    resolution: {integrity: sha512-lIGz5AbZlmcoL0aJgFeugtdGhra0FA4ubSUTFg+bGqSiDf214p8TTZmnGsZDPXADGlQP2yOm7ziCakJ6CcJc2w==}
+    engines: {node: '>=22'}
+    peerDependencies:
+      react: '>=18'
 
   stats-gl@2.4.2:
     resolution: {integrity: sha512-g5O9B0hm9CvnM36+v7SFl39T7hmAlv541tU81ME8YeSb3i1CIP5/QdDeSB3A0la0bKNHpxpwxOVRo2wFTYEosQ==}
@@ -6193,6 +6202,10 @@ snapshots:
   source-map@0.6.1: {}
 
   stable-hash@0.0.5: {}
+
+  stack-on-scroll@2.0.2(react@19.2.8):
+    dependencies:
+      react: 19.2.8
 
   stats-gl@2.4.2(@types/three@0.185.4)(three@0.185.1):
     dependencies:
