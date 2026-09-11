@@ -2,6 +2,7 @@ import Background from "./background/Background";
 import Midline from "./background/Midline";
 import Heroarrow from "./HeroItem/Heroarrow";
 import HerotagIcon from "./HeroItem/HerotagIcon";
+import SocialLinks from "./HeroItem/SocialLinks";
 import Navbar from "./Navbar/Navbar";
 // import Idcard from "./Idcard";
 
@@ -20,6 +21,9 @@ const Herosection = () => {
         </div>
         <div className="absolute bottom-0 left-40 z-50">
           <HerotagIcon/>
+        </div>
+         <div className="absolute bottom-10 right-50 z-50">
+          <SocialLinks/>
         </div>
         <div className="flex flex-col justify-center z-50">
           <p className="leading-35"><span className="text-6xl pl-5">Welcome Lets </span><br />

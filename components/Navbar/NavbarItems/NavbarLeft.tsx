@@ -1,8 +1,13 @@
 import React from 'react'
+import ResumeButton from './ResumeButton'
+import ContactButton from './ContactButton'
 
 const NavbarLeft = () => {
   return (
-    <div>NavbarLeft</div>
+    <div>
+      <ResumeButton/>
+      <ContactButton/>
+    </div>
   )
 }
 

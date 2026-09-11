@@ -1,6 +1,6 @@
 // import Image from "next/image";
 // import React from "react";
-// import Lanyard from "./Lanyard";
+// import Lanyard from "./ui/Lanyard";
 
 // const Idcard = () => {
 //   return (

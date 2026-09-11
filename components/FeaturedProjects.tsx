@@ -3,7 +3,7 @@
 import Image from "next/image";
 import BorderGlow from "./BorderGlow";
 
-const FeaturedProjects = ({ title, description, imageSrc }:any)=> {
+const FeaturedProjects = ({ title, description, imageSrc }:{title:string, description:string, imageSrc:string})=> {
   return (
     // 1. ADDED: w-[400px] locks the card size, and shrink-0 stops Flexbox from crushing it!
     <section className="flex justify-center w-[450px] shrink-0 relative">
@@ -27,6 +27,7 @@ const FeaturedProjects = ({ title, description, imageSrc }:any)=> {
             height={250}
             // 3. I set a fixed height of h-[220px] to make all 3 project images exactly uniform
             className="rounded-2xl w-full h-[220px] object-cover"
+            loading="lazy"
           />
         </div>
         

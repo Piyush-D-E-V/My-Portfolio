@@ -20,9 +20,6 @@
 //   export class MeshLineGeometry extends THREE.BufferGeometry {
 //     setPoints(points: THREE.Vector3[] | Float32Array): void;
 //   }
-//   export class MeshLineMaterial extends THREE.Material {
-//     constructor(parameters?: Record<string, unknown>);
-//   }
 // }
 
 // // eslint-disable-next-line @typescript-eslint/no-namespace
