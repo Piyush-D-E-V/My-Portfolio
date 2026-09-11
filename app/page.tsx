@@ -2,6 +2,7 @@ import AllProjectStack from "@/components/AllProjectStack";
 import FadeIn from "@/components/FadIn";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import HeroSection from "@/components/Herosection";
+import Mailsection from "@/components/Mailsection";
 import SkillSection from "@/components/SkillSection";
 import Aboutme from "@/components/ui/Aboutme";
 import React from "react";
@@ -50,6 +51,7 @@ const page = () => {
         <SkillSection />
       </FadeIn>
       <Aboutme />
+      <Mailsection/>
     </div>
   );
 };
