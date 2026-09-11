@@ -138,13 +138,14 @@ const SkillSection = () => {
   const formattedIndex = (activeIndex + 1).toString().padStart(2, '0')
 
   return (
+    <div className='relative'>
+      <h1 className='absolute top-15 text-6xl z-50 font-bold left-15'>Skills</h1>
     <div
       ref={sectionRef}
       // 1. Replaced h-150 with h-screen min-h-[700px]
       // 2. Added the magical mask-image class to feather the top and bottom edges 
       className="w-full h-screen min-h-[700px] bg-[#050505] flex items-center justify-between overflow-hidden relative [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"
     >
-      
       {/* Subtle Top & Bottom Gradient Vignettes to deepen the shadows near the cuts */}
       <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-black/80 to-transparent z-20 pointer-events-none" />
       <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-black/80 to-transparent z-20 pointer-events-none" />
@@ -254,6 +255,7 @@ const SkillSection = () => {
           }
         }
       `}</style>
+    </div>
     </div>
   )
 }

@@ -4,14 +4,17 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import HeroSection from "@/components/Herosection";
 import Mailsection from "@/components/Mailsection";
 import SkillSection from "@/components/SkillSection";
-import Aboutme from "@/components/ui/Aboutme";
+import Aboutme from "@/components/Aboutme";
 import React from "react";
 
 const page = () => {
   return (
     <div className="bg-black text-white">
-      <HeroSection />
-      <div className="absolute w-full h-50 bg-linear-0 from-black to-transparent "></div>
+      <div>
+        <HeroSection />
+        <div className="absolute w-full h-50 bg-linear-0 from-black to-transparent "></div>
+      </div>
+
       <FadeIn>
         <div className="mt-15 gap-20 flex flex-col">
           <h1 className="flex justify-center text-6xl">Featured Projects</h1>
@@ -42,16 +45,22 @@ const page = () => {
       </FadeIn>
 
       <FadeIn>
-        <div>
-          <h1 className=" mt-20 flex justify-center text-6xl">All Projects</h1>
+        <div className="flex flex-col gap-0 mt-20">
+          <h1 className="absolute top-20 flex justify-start pl-15 text-6xl font-bold z-50">
+            All Projects
+          </h1>
           <AllProjectStack />
         </div>
       </FadeIn>
       <FadeIn>
         <SkillSection />
       </FadeIn>
-      <Aboutme />
-      <Mailsection/>
+      <FadeIn>
+        <Aboutme />
+      </FadeIn>
+      <FadeIn>
+        <Mailsection />
+      </FadeIn>
     </div>
   );
 };

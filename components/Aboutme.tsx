@@ -1,11 +1,11 @@
 'use client'
-import ScrollReveal from './ScrollReveal'
+import ScrollReveal from './ui/ScrollReveal'
 
 const Aboutme = () => {
   return (
-    <section className="flex flex-col gap-8 pb-12 pt-32 px-6 max-w-4xl mx-auto">
+    <section className="flex flex-col gap-8 pb-12 pt-32 px-6 max-w-7xl mx-auto relative">
+      <h1 className='absolute top-15 text-6xl z-50 font-bold left-0'>About Me</h1>
     <div className='text-3xl md:text-5xl lg:text-6xl text-gray-200 leading-tight md:leading-snug font-bold tracking-tight'>
-        
 
 <ScrollReveal
   baseOpacity={0.1}

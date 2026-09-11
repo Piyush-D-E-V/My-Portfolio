@@ -4,7 +4,7 @@ import ContactButton from './ContactButton'
 
 const NavbarLeft = () => {
   return (
-    <div>
+    <div className='flex justify-center items-center gap-5'>
       <ResumeButton/>
       <ContactButton/>
     </div>
