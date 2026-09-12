@@ -41,15 +41,15 @@ const Herosection = () => {
       }
     `}
           </style>
-          <p className="leading-45">
-            <span className="font-quadrillion text-6xl pl-5">Welcome Lets </span>
+          <p className="leading-50">
+            <span className="font-quadrillion text-7xl pl-5">Building </span>
             <br />
             <span className="font-quadrillion text-[100px] lg:text-[200px] xl:text-[250px] 2xl:text-[350px] font-bold">
-              Building
+              Beyond
             </span>
             <br />
-            <span className="font-quadrillion flex justify-end text-6xl pr-5">
-              the Unimaginable
+            <span className="font-quadrillion flex justify-end text-7xl pr-5">
+            Imagination
             </span>
           </p>
         </div>
