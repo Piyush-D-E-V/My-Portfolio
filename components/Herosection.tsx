@@ -41,17 +41,17 @@ const Herosection = () => {
       }
     `}
           </style>
-          <p className="leading-50">
-            <span className="font-quadrillion text-7xl pl-5">Building </span>
-            <br />
-            <span className="font-quadrillion text-[100px] lg:text-[200px] xl:text-[250px] 2xl:text-[350px] font-bold">
-              Beyond
-            </span>
-            <br />
-            <span className="font-quadrillion flex justify-end text-7xl pr-5">
-            Imagination
-            </span>
-          </p>
+          <div className="flex flex-col leading-none gap-4">
+  <span className="font-quadrillion text-7xl pl-5">
+    Building
+  </span>
+  <span className="font-quadrillion text-[100px] lg:text-[200px] xl:text-[250px] 2xl:text-[350px] font-bold">
+    Beyond
+  </span>
+  <span className="font-quadrillion text-right text-7xl pr-5">
+    Imagination
+  </span>
+</div>
         </div>
         <div className="absolute w-full z-10">
           <Background />
