@@ -2,12 +2,13 @@ import AllProjectStack from "@/components/AllProjectStack";
 import FadeIn from "@/components/FadIn";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import HeroSection from "@/components/Herosection";
-import Mailsection from "@/components/Mailsection";
+
 import SkillSection from "@/components/SkillSection";
 import Aboutme from "@/components/Aboutme";
 import React from "react";
 import Navbar from "@/components/Navbar/Navbar";
 import { Metadata } from "next";
+import Mailsection from "@/components/Mailsection";
 
 export const metadata: Metadata = {
   title: "Piyush Portfolio",

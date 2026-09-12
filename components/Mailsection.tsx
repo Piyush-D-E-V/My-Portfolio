@@ -1,22 +1,25 @@
+
 'use client'
 import React from 'react'
 import 'remixicon/fonts/remixicon.css'
 
 const Mailsection = () => {
- const handleSubmit = (e) => {
+  // FIX 1: Added React.FormEvent<HTMLFormElement> type to 'e'
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
     // 1. Grab the data from the form
-    const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const senderEmail = formData.get('email');
-    const message = formData.get('message');
+    // FIX 2: Used e.currentTarget (TS safe) and added 'as string' to form values
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const senderEmail = formData.get('email') as string;
+    const message = formData.get('message') as string;
 
     // 2. Format the email body
     const emailBody = `Hi Piyush,\n\n${message}\n\n---\nSender Details:\nName: ${name}\nEmail: ${senderEmail}`;
     
     // 3. Build the specific URL
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=hello.piyush@gmail.com&su=New Connection Initiated by ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=piyush140705@gmail.com&su=New Connection Initiated by ${encodeURIComponent(name)}&body=${encodeURIComponent(emailBody)}`;
     
     // 4. Calculate the center of the screen for the floating window
     const popupWidth = 800;

@@ -1,9 +1,15 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 
-export default function FadeIn({ children, delay = 0 }) {
+interface FadeInProps {
+  children: React.ReactNode;
+  delay?: number;
+}
+
+export default function FadeIn({ children, delay = 0 }: FadeInProps) {
   const [isVisible, setIsVisible] = useState(false)
-  const ref = useRef(null)
+  // Added <HTMLDivElement> so TypeScript knows what this ref attaches to
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const observer = new IntersectionObserver(

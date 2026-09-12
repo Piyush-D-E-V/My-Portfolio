@@ -100,7 +100,8 @@ const wheelItems = skillsData.map((skill) => skill.name)
 
 const SkillSection = () => {
   const [activeIndex, setActiveIndex] = useState(0)
-  const sectionRef = useRef(null)
+  // FIX: Added <HTMLDivElement> so TS knows this ref attaches to a div, exposing getBoundingClientRect
+  const sectionRef = useRef<HTMLDivElement>(null)
   const [isSectionCentered, setIsSectionCentered] = useState(false)
 
   useEffect(() => {
