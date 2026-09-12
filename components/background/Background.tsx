@@ -2,20 +2,20 @@ import React from "react";
 
 const Background = () => {
   return (
-    <div className="relative w-full h-screen blur-xl">
-      {/* Top Left - Subtle pink highlight over deep purple */}
-      <div className="absolute -top-30 -left-20">
-        <div className="w-50  h-50 bg-[#EAAEF2]/50 rounded-r-[50%] absolute z-20 blur-2xl"></div>
-        <div className="w-100 h-50 bg-[#8552F2] rounded-r-[50%] absolute z-10 blur-3xl"></div>
-        <div className="w-100 h-50 bg-[#5E35F2] rounded-r-[50%] absolute blur-xl"></div>
-      </div>
+    // 'absolute inset-0' pins it to the background of your hero section.
+    // 'bg-black' ensures the base is dark.
+    // 'overflow-hidden' prevents the blurred orbs from causing horizontal scrolling.
+    <div className="absolute inset-0 w-full min-h-screen bg-black overflow-hidden z-5 pointer-events-none rounded-full blur-3xl bottom-0">
+      
+      {/* 1. Top Left - Deep Purple Glow */}
+      <div className="absolute -top-[10%] -left-[10%] w-[60vw] h-[60vw] max-w-[700px] max-h-[700px] bg-[#8552F2] rounded-full blur-[100px] md:blur-[150px] mix-blend-screen"></div>
 
-      {/* Bottom Left - The brightest pink hot spot */}
-      <div className="absolute md:bottom-70">
-        <div className="w-screen h-500 bg-[#EAAEF2]/85 rounded-t-[35%] absolute z-50 blur-2xl"></div>
-        <div className="w-screen h-500 bg-[#8552F2] rounded-t-[30%] absolute z-10 blur-3xl"></div>
-        <div className="w-screen h-500 bg-[#5E35F2] rounded-t-[25%] absolute blur-xl"></div>
-      </div>
+      {/* 2. Bottom Right - Darker Violet Glow */}
+      <div className="absolute top-[40%] -right-[10%] w-[50vw] h-[50vw] max-w-[600px] max-h-[600px] bg-[#5E35F2] rounded-full blur-[100px] md:blur-[150px] mix-blend-screen"></div>
+
+      {/* 3. Center/Left Accent - Bright Pinkish Hot Spot */}
+      <div className="absolute top-[10%] left-[40%] w-[40vw] h-[40vw] max-w-[500px] max-h-[500px] bg-[#EAAEF2] rounded-full blur-[90px] md:blur-[130px] mix-blend-screen"></div>
+
     </div>
   );
 };

@@ -26,7 +26,7 @@ const FeaturedProjects = ({ title, description, imageSrc }:{title:string, descri
             width={450}
             height={250}
             // 3. I set a fixed height of h-[220px] to make all 3 project images exactly uniform
-            className="rounded-2xl w-full h-[220px] object-cover"
+            className="rounded-2xl lg:w-full lg:h-[220px] object-cover"
             loading="lazy"
           />
         </div>

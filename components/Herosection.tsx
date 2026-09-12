@@ -3,38 +3,60 @@ import Midline from "./background/Midline";
 import Heroarrow from "./HeroItem/Heroarrow";
 import HerotagIcon from "./HeroItem/HerotagIcon";
 import SocialLinks from "./HeroItem/SocialLinks";
-import Navbar from "./Navbar/Navbar";
-// import Idcard from "./Idcard";
+import Idcard from "./Idcard";
 
 const Herosection = () => {
   return (
     <div className="relative overflow-hidden h-screen w-full">
-      <div className="sticky z-100">
-        <Navbar />
-      </div>
       <div className="w-full h-screen flex justify-center items-center">
-        {/* <div className="absolute top-2 w-full z-60">
+        <div className="absolute top-2 w-full z-60">
           <Idcard />
-        </div> */}
-        <div className="absolute top-40 right-40">
-          <Heroarrow/>
         </div>
-        <div className="absolute bottom-0 left-40 z-50">
-          <HerotagIcon/>
+        <div className="absolute top-30 right-0 2xl:right-40 z-50">
+          <Heroarrow />
         </div>
-         <div className="absolute bottom-10 right-50 z-50">
-          <SocialLinks/>
+        <div className="absolute bottom-0 left-0 2xl:left-30 z-50">
+          <HerotagIcon />
         </div>
-        <div className="flex flex-col justify-center z-50">
-          <p className="leading-35"><span className="text-6xl pl-5">Welcome Lets </span><br />
-          <span className="text-[320px] font-bold">Building</span> <br />
-          <span className="flex justify-end text-6xl pr-5">the Unimaginable</span></p>
+        <div className="absolute bottom-10 right-15 2xl:right-50 z-60">
+          <SocialLinks />
         </div>
-
-        <div className="absolute left-0 w-full z-30">
+        <div
+          className="flex flex-col justify-center z-40"
+          style={{
+            animation: "fadeInUp 5s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+          }}
+        >
+          <style>
+            {`
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    `}
+          </style>
+          <p className="leading-45">
+            <span className="font-quadrillion text-6xl pl-5">Welcome Lets </span>
+            <br />
+            <span className="font-quadrillion text-[100px] lg:text-[200px] xl:text-[250px] 2xl:text-[350px] font-bold">
+              Building
+            </span>
+            <br />
+            <span className="font-quadrillion flex justify-end text-6xl pr-5">
+              the Unimaginable
+            </span>
+          </p>
+        </div>
+        <div className="absolute w-full z-10">
           <Background />
           <div>
-            <Midline/>
+            <Midline />
           </div>
         </div>
       </div>

@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
 import SmoothScroll from "@/components/ui/SmoothScroll";
+import localFont from "next/font/local";
+import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const quadrillion = localFont({
+  src: [
+    {
+      path: './fonts/quadrillion/Quadrillion Sb.otf',
+      weight: '600', // SemiBold
+      style: 'normal',
+    },
+    {
+      path: './fonts/quadrillion/Quadrillion Sb It.otf',
+      weight: '600', // SemiBold Italic
+      style: 'italic',
+    },
+  ],
+  variable: '--font-quadrillion',
 });
 
 export const metadata: Metadata = {
@@ -22,9 +28,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${quadrillion.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body>
         <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>

@@ -21,7 +21,7 @@ const AllProjectStack = () => {
         <StackCard {...stackConfig} index={0}>
           <div className="relative w-full h-[70vh] bg-neutral-950 overflow-hidden rounded-[40px] border border-white/10 flex flex-col justify-between p-8 md:p-16 mb-8 ">
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/30 blur-[80px] rounded-full pointer-events-none"></div>
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-col min-[900px]:flex-row">
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="px-4 py-1.5 rounded-full bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-wider backdrop-blur-md border border-white/5">
@@ -35,18 +35,21 @@ const AllProjectStack = () => {
                   CineNexus
                 </h2>
                 <p className="text-neutral-400 text-xl max-w-2xl leading-relaxed">
-                  A dynamic cinematic discovery platform designed to provide real-time updates on trending films, top-rated movies, and comprehensive database insights. Built with a focus on immersive, visually appealing UI, the application leverages external APIs to seamlessly render data for visually stunning and narrative-driven titles. Integrated AI search capabilities elevate the user experience by delivering smart, context-aware movie recommendations.
+                 An Movie discovery app using the TMDB API to search and a Personalize Custom Watchlist,<span className="hidden sm:flex">filter and recommend visually stunning films and trending blockbusters.</span> 
                 </p>
               </div>
+              <a href="https://thecinenexus.vercel.app/">
               <div className="rounded-2xl border border-gray-500 overflow-hidden">
                 <Image
                   src="/images/CineNexus.png"
                   alt="CineNexus"
-                  width={850}
+                  width={800}
                   height={150}
                   className="relative z-10 drop-shadow-[0_0_15px_rgba(94,53,242,0.3)]"
                 />
               </div>
+              </a>
+              
             </div>
 
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-8">
@@ -69,7 +72,7 @@ const AllProjectStack = () => {
           <div className="relative w-full h-[70vh] bg-neutral-950 overflow-hidden rounded-[40px] border border-white/10 flex flex-col justify-between p-8 md:p-16 mb-8">
             <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-emerald-600/30 blur-[80px] rounded-full pointer-events-none"></div>
 
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-col min-[900px]:flex-row">
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="px-4 py-1.5 rounded-full bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-wider backdrop-blur-md border border-white/5">
@@ -83,18 +86,20 @@ const AllProjectStack = () => {
                   AI Resume Review
                 </h2>
                 <p className="text-neutral-400 text-xl max-w-2xl leading-relaxed">
-                  An intelligent evaluation tool engineered to parse, analyze, and optimize professional resumes. Leveraging natural language processing, the application provides targeted, actionable feedback on content, structure, and formatting. It helps candidates strip away clutter, enforce strict consistency, and highlight key technical skills to ensure maximum compatibility with Applicant Tracking Systems (ATS).
+                  An NLP-driven evaluation tool that parses and optimizes resumes for ATS compatibility,<span className="hidden sm:flex">providing actionable feedback to enforce strict structural consistency and effective keyword and suggestions.</span> 
                 </p>
               </div>
+              <a href="https://ai-resume-reviewer-inky.vercel.app/">
               <div className="rounded-2xl border border-gray-500 overflow-hidden">
                 <Image
                   src="/images/AI-resume review.png"
                   alt="AI-resume review"
-                  width={850}
+                  width={800}
                   height={150}
                   className="relative z-10 drop-shadow-[0_0_15px_rgba(94,53,242,0.3)]"
                 />
               </div>
+              </a>
             </div>
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-8">
               <div className="flex gap-3">
@@ -116,7 +121,7 @@ const AllProjectStack = () => {
           <div className="relative w-full h-[70vh] bg-neutral-950 overflow-hidden rounded-[40px] border border-white/10 flex flex-col justify-between p-8 md:p-16">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-600/20 blur-[100px] rounded-full pointer-events-none"></div>
 
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-col min-[900px]:flex-row">
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="px-4 py-1.5 rounded-full bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-wider backdrop-blur-md border border-white/5">
@@ -130,18 +135,20 @@ const AllProjectStack = () => {
                   F1 Dashboard
                 </h2>
                 <p className="text-neutral-400 text-xl max-w-2xl leading-relaxed">
-                  A high-performance data visualization dashboard designed to track Formula 1 race statistics, driver standings, and constructor performance. The application translates complex, real-time motorsports data into clean, interactive charts and accessible metrics, delivering a highly responsive analytical experience for tracking top-tier racing teams.
+                 A real-time data visualization dashboard tracking driver standings,<span className="hidden sm:flex">race statistics, race cleander/race date and time, and constructor performance for top-tier teams.</span> 
                 </p>
               </div>
+              <a href="https://formula-1-dashboard-piyush.vercel.app/">
               <div className="rounded-2xl border border-gray-500 overflow-hidden">
                 <Image
                   src="/images/f1.png"
                   alt="f1"
-                  width={850}
+                  width={800}
                   height={150}
                   className="relative z-10 drop-shadow-[0_0_15px_rgba(94,53,242,0.3)]"
                 />
               </div>
+              </a>
             </div>
             <div className="relative z-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/10 pt-8">
               <div className="flex gap-3">
@@ -157,10 +164,12 @@ const AllProjectStack = () => {
             </div>
           </div>
         </StackCard>
+        
+        {/* Card 4: INDEX 3 */}
         <StackCard {...stackConfig} index={3}>
           <div className="relative w-full h-[70vh] bg-neutral-950 overflow-hidden rounded-[40px] border border-white/10 flex flex-col justify-between p-8 md:p-16 mb-8">
             <div className="absolute -top-24 -right-24 w-64 h-64 bg-purple-600/30 blur-[80px] rounded-full pointer-events-none"></div>
-            <div className="flex justify-between">
+            <div className="flex justify-between flex-col min-[900px]:flex-row">
               <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="px-4 py-1.5 rounded-full bg-white/10 text-white/80 text-xs font-semibold uppercase tracking-wider backdrop-blur-md border border-white/5">
@@ -174,7 +183,7 @@ const AllProjectStack = () => {
                   Bhai ki Shop
                 </h2>
                 <p className="text-neutral-400 text-xl max-w-2xl leading-relaxed">
-                  An intelligent AI Shopping Agent. This core feature acts as a personalized digital assistant, dynamically comparing product specifications and pricing across the catalog to deliver optimized, cost-effective recommendations based on exact user requirements. Alongside dynamic catalog rendering and intuitive cart management, the platform ensures a smart, frictionless, and highly tailored digital shopping experience.
+                 An AI Shopping Agent that dynamically compares product specifications and pricing <span className="hidden sm:flex">to deliver the best deals based on user requirements and it can filter out the best and right product according to users requirements.</span> 
                 </p>
               </div>
               <a href="https://bhai-ki-shop.vercel.app/">
@@ -182,7 +191,7 @@ const AllProjectStack = () => {
                   <Image
                     src="/images/Bhai-ki-shop.png"
                     alt="Bhai-ki-shop"
-                    width={850}
+                    width={800}
                     height={150}
                     className="relative z-10 drop-shadow-[0_0_15px_rgba(94,53,242,0.3)]"
                   />

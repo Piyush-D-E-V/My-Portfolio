@@ -93,14 +93,7 @@ const skillsData = [
     color: '#eab308',
     tags: ['Analytical', 'Testing', 'Resolution']
   },
-  {
-    name: 'VFX & Media',
-    title: 'Production',
-    desc: 'Immersive world-building, practical effects, and cinematic documentary video editing.',
-    icon: 'ri-film-fill',
-    color: '#ec4899',
-    tags: ['Storytelling', 'VFX', 'Directing']
-  }
+  
 ]
 
 const wheelItems = skillsData.map((skill) => skill.name)
@@ -159,7 +152,7 @@ const SkillSection = () => {
       />
 
       {/* LEFT SIDE: The Option Wheel */}
-      <div className="w-1/2 h-full flex items-center relative z-10">
+      <div className="w-1/2 h-full flex items-center relative z-10 flex-wrap">
         <OptionWheel
           items={wheelItems}
           defaultSelected={0}
