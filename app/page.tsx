@@ -10,7 +10,7 @@ import Navbar from "@/components/Navbar/Navbar";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Piyush Mina | Full-Stack Developer",
+  title: "Piyush Portfolio",
   description: "Portfolio of Piyush Mina, a full-stack software engineer specializing in React.js, Next.js, and modern web applications.",
   keywords: ["Piyush Mina", "Portfolio", "Full-Stack Developer", "React", "Next.js", "Web Development"],
   openGraph: {
