@@ -16,18 +16,12 @@ import {
 import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
 
-declare module 'meshline' {
-  export class MeshLineGeometry extends THREE.BufferGeometry {
-    setPoints(points: THREE.Vector3[] | Float32Array): void;
-  }
-}
-
-// eslint-disable-next-line @typescript-eslint/no-namespace
 declare global {
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace JSX {
     interface IntrinsicElements {
-      meshLineGeometry: { attach?: string; args?: unknown[] } & Partial<MeshLineGeometry>;
-      meshLineMaterial: { attach?: string; args?: unknown[] } & Partial<MeshLineMaterial>;
+      meshLineGeometry: { attach?: string; args?: unknown[] } & Record<string, unknown>;
+      meshLineMaterial: { attach?: string; args?: unknown[] } & Record<string, unknown>;
     }
   }
 }
@@ -66,7 +60,6 @@ export default function Lanyard({
         onCreated={({ gl }) => gl.setClearColor(new THREE.Color(0x000000), transparent ? 0 : 1)}
       >
         <ambientLight intensity={Math.PI} />
-        {/* ADDED 'interpolate' TO FIX PHYSICS JANK */}
         <Physics gravity={gravity} timeStep={1 / 60} interpolate>
           <Band />
         </Physics>
@@ -93,11 +86,11 @@ type GLTFResult = {
 
 function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
   const band = useRef<THREE.Mesh>(null);
-  const fixed = useRef<RapierRigidBody>(null);
-  const j1 = useRef<RapierRigidBody>(null);
-  const j2 = useRef<RapierRigidBody>(null);
-  const j3 = useRef<RapierRigidBody>(null);
-  const card = useRef<RapierRigidBody>(null);
+  const fixed = useRef<RapierRigidBody>(null!);
+  const j1 = useRef<RapierRigidBody>(null!);
+  const j2 = useRef<RapierRigidBody>(null!);
+  const j3 = useRef<RapierRigidBody>(null!);
+  const card = useRef<RapierRigidBody>(null!);
 
   const j1Lerped = useRef<THREE.Vector3 | null>(null);
   const j2Lerped = useRef<THREE.Vector3 | null>(null);
@@ -105,13 +98,22 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
   const segmentProps = useMemo(() => ({
     type: 'dynamic' as const,
     canSleep: true,
-    colliders: false,
+    colliders: false as const,
     angularDamping: 4,
     linearDamping: 4
   }), []);
 
   const { nodes, materials } = useGLTF(cardGLB) as unknown as GLTFResult;
   const texture = useTexture(lanyard) as THREE.Texture;
+
+  // FIX: Properly clone and mutate the texture inside useMemo instead of useEffect 
+  // to avoid mutating the globally cached value returned from useTexture.
+  const customTexture = useMemo(() => {
+    const tex = texture.clone();
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.needsUpdate = true;
+    return tex;
+  }, [texture]);
 
   const [curve] = useState(() => {
     const c = new THREE.CatmullRomCurve3([
@@ -136,13 +138,6 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
     window.addEventListener('resize', handleResize);
     return (): void => window.removeEventListener('resize', handleResize);
   }, []);
-
-  useEffect(() => {
-    if (texture) {
-      texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
-      texture.needsUpdate = true;
-    }
-  }, [texture]);
 
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
@@ -171,7 +166,6 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
     }
 
     if (fixed.current && j1.current && j2.current && j3.current && card.current) {
-      // Safely extract positions (Rapier returns objects, not THREE.Vector3s)
       const t1 = j1.current.translation();
       const t2 = j2.current.translation();
       const t3 = j3.current.translation();
@@ -185,7 +179,6 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
       if (!j1Lerped.current) j1Lerped.current = new THREE.Vector3().copy(v1);
       if (!j2Lerped.current) j2Lerped.current = new THREE.Vector3().copy(v2);
 
-      // CLAMPED LERP FACTOR TO 1.0 (Fixes explosive reload movement)
       const d1 = Math.max(0.1, Math.min(1, j1Lerped.current.distanceTo(v1)));
       const lerp1 = Math.min(1, delta * (minSpeed + d1 * (maxSpeed - minSpeed)));
       j1Lerped.current.lerp(v1, lerp1);
@@ -200,7 +193,9 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
       curve.points[3].copy(vFixed);
 
       if (band.current) {
-        (band.current.geometry as MeshLineGeometry).setPoints(curve.getPoints(32));
+        // FIX: Cast as any dynamically to fix the duplicate identifier error cleanly
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (band.current.geometry as any).setPoints(curve.getPoints(32));
       }
 
       const ang = card.current.angvel();
@@ -213,14 +208,13 @@ function Band({ maxSpeed = 50, minSpeed = 0 }: BandProps) {
   const meshLineMat = useMemo(() => {
     return new MeshLineMaterial({
       color: 'white',
-      // REMOVED: depthTest: false (Fixes the strap clipping over the card oddly)
       resolution: new THREE.Vector2(isSmall ? 1000 : 1000, isSmall ? 2000 : 1000),
-      useMap: true,
-      map: texture,
+      useMap: 1, 
+      map: customTexture, // <--- Using the cloned texture
       repeat: new THREE.Vector2(-4, 1),
       lineWidth: 1
     });
-  }, [texture, isSmall]);
+  }, [customTexture, isSmall]);
 
   return (
     <>
