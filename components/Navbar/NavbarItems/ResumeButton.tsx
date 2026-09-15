@@ -4,7 +4,7 @@ import React from 'react'
 const ResumeButton = () => {
   return (
     <a 
-      href="/Piyush_Mina_Resume.pdf" 
+      href="/Piyush_Mina_Frontend_Engineer_Resume.pdf" 
       target="_blank" 
       rel="noopener noreferrer"
       className="relative group inline-flex items-center justify-center outline-none"
