@@ -38,7 +38,7 @@ const Page = () => {
 
       {/* The rest of the page remains normal */}
       <FadeIn>
-        <div className="mt-15 gap-20 flex flex-col w-full">
+        <div className="pt-15 gap-20 flex flex-col w-full overflow-hidden">
           <h2 className="flex justify-center text-6xl">Featured Projects</h2>
           <div className="flex justify-center w-full flex-wrap gap-10 mt-10">
             <a href="https://thecinenexus.vercel.app/" target="_blank" rel="noopener noreferrer">
